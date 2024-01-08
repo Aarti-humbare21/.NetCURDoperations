@@ -1,0 +1,58 @@
+﻿@model IEnumerable<entityframworkEx.Models.t1>
+@{
+    ViewData["Title"] = "DisplayData";
+    Layout = "~/Views/Shared/User_Layout1.cshtml";
+}
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+</style>
+<h1>DisplayData</h1>
+<table id="customers">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Delete</th>
+        <th>Edit</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+
+            <td>
+                @Html.ActionLink("Update","Edit","ConcurrencyEx", new { RecordId=item. Id},null) |
+
+                @Html.ActionLink("Delete","Delete","ConcurrencyEx",new { RecordId=item. Id},new {onclick="return confirm('are u sure u wants to delete');"})
+
+            </td>
+        </tr>
+
+
+    }
+</table>

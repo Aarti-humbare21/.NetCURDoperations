@@ -1,0 +1,62 @@
+﻿@model entityframworkEx.Models.t1
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/User_Layout1.cshtml";
+}
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+</style>
+<h1>Edit</h1>
+@using (Html.BeginForm())
+{
+
+    <table style="width:100%" border="1" id="customers">
+        <tr>
+          
+            <td>
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.RowVersion)
+                @Html.ValidationSummary(false,"",new{@class="text-danger"} )
+            </td>
+            <th>
+                Name
+            </th>
+            <td>
+                @Html.TextBoxFor(model=>model.Name)
+            </td>
+        </tr>
+                <tr>
+            <td>
+                <input type="submit" id="submit" value="submit">
+            </td>
+            <td>
+                <input type="reset" id="reset" value="reset">
+            </td>
+        </tr>
+    </table>
+}

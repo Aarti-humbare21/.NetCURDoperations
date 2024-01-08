@@ -1,0 +1,135 @@
+﻿@model entityframworkEx.Models.RegisterModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/User_Layout1.cshtml";
+}
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+</style>
+<h1>Edit</h1>
+@using (Html.BeginForm())
+{
+
+    <table style="width:100%" border="1" id="customers">
+        <tr>
+            <th>
+                RollNO
+            </th>
+            <td>
+                @Html.HiddenFor(model => model.RecordId)
+                @Html.TextBoxFor(model => model.RollNo)
+            </td>
+            <th>
+                Name
+            </th>
+            <td>
+                @Html.TextBoxFor(model=>model.Name)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                EmailId
+            </th>
+            <td>
+                @Html.TextBoxFor(model=>model.EmailID)
+            </td>
+            <th>
+                Password
+            </th>
+            <td>
+                @Html.TextBoxFor(model=>model.password)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Age
+            </th>
+            <td>
+                @Html.TextBoxFor(model=>model.Age)
+            </td>
+            <th>
+                DOB
+            </th>
+            <td>
+                @Html.TextBoxFor(model=>model.Dob)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                fee
+            </th>
+            <td>
+                @Html.TextBoxFor(model=>model.Fee)
+            </td>
+            <th>
+                Dept
+            </th>
+            <td>
+                @Html.DropDownListFor(model => model.Dept, new List<SelectListItem> {
+            new SelectListItem { Text="--Select--",Value="0"},
+            new SelectListItem { Text="CSE",Value="CSE"},
+            new SelectListItem { Text="EEE",Value="EEE"},
+            new SelectListItem { Text="Mech",Value="Mech"},
+            new SelectListItem { Text="IT",Value="IT"},
+            new SelectListItem { Text="Civil",Value="Civil"}
+            }, new { @class = "form-control" })
+            </td>
+        </tr>
+
+        <tr>
+            <th>Status</th>
+            <td>
+                @Html.DropDownListFor(model => model.status, new List<SelectListItem> {
+            new SelectListItem { Text="--Select--",Value="0"},
+            new SelectListItem { Text="Active",Value="true"},
+            new SelectListItem { Text="InActive",Value="false"}
+            }, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>
+                @Html.DropDownListFor(model => model.role, new List<SelectListItem> {
+            new SelectListItem { Text="--Select--",Value="0"},
+            new SelectListItem { Text="Admin",Value="Admin"},
+            new SelectListItem { Text="User",Value="User"}
+            }, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" id="submit" value="submit">
+            </td>
+            <td>
+                <input type="reset" id="reset" value="reset">
+            </td>
+        </tr>
+    </table>
+}
+

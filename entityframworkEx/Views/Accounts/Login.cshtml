@@ -1,0 +1,104 @@
+﻿@model LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        Body {
+            font-family: Calibri, Helvetica, sans-serif;
+            background-color: cadetblue;
+        }
+
+        button {
+            background-color: lightblue;
+            width: 35%;
+            color: black;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .uname {
+            width: 60%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        .Password {
+            width: 60%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            margin: 10px 5px;
+        }
+
+
+        .container {
+            margin-top: 50px;
+            padding: 25px;
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <center> <h1>Login Page</h1> </center>
+
+        <div class="container" style="width:40%; margin-left:300px; padding-left:200px; border:2px solid black; border-radius:8px;">
+            <label>
+                <b>
+                    Username
+                </b>
+            </label>
+            <br>
+            @Html.TextBoxFor(model=>model.EmailID,new {@class="uname"})
+            <br></br>
+            <label>
+                <b>
+                    Password
+                </b>
+            </label>
+            <br>
+            @Html.PasswordFor(model=>model.password,new {@class="Password"})
+            <br></br>
+
+            <button type="submit">Login</button>
+            <input type="checkbox" checked="checked"> Remember me
+            <button type="button" class="cancelbtn"> Cancel</button>
+            <br>
+            @Html.ActionLink("Forget Password","Forget Password","Accounts")
+            <br>
+            <br>
+            @Html.ActionLink("Register Here","Register","Accounts")
+            <br>
+            @ViewBag.error
+
+
+        </div>
+
+    }
+</body>
+</html>
+
+

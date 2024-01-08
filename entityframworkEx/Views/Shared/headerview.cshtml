@@ -1,0 +1,32 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<table style="width:100%;height:60px;
+          border:1px solid#000000; margin:5px; text-align:center;background-color:cornflowerblue;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;border-radius:20px">
+    <tr>
+        <td>
+            Welcome To App Devlopment
+        </td>
+    </tr>
+</table>
+<table style="width:100%;text-align:center; height:60px;
+      border:1px solid#000000; margin:5px;color:black; background-color:gray;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;border-radius:20px">
+    <tr>
+
+        <td>@Html.ActionLink("Homepage","Home","Accounts")</td>
+        
+            <td>@Html.ActionLink("Display Data","Display","SpCurd")</td>
+
+        
+        <td>@Html.ActionLink("Store Data","ListofData2","Store")</td>
+        <td>@Html.ActionLink("DisplayListData","GetData","DDl")</td>
+        <td>@Html.ActionLink("Exception","Index","Exception")</td>
+        <td>@Html.ActionLink("Cookieinfo","StoringCooking","Cookieinfo")</td>
+        <td>@Html.ActionLink("DisplayEmpData","DisplayEmpData","ViewdataEx")</td>
+
+
+        <td>@Html.ActionLink("Logout","Logout","Accounts")</td>
+        
+    </tr>
+</table>
